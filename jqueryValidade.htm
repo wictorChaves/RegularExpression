@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Teste de Expressão Regular</title>
+    <!-- css -->
+    <link href="css/style.css" rel="Stylesheet" type="text/css" />
+    <style type="text/css">
+        /* Mensagem de Erro na tela*/
+        form label.error, form input.submit {
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            color: #f8abab;
+            background-color: #ff0000;
+            padding: 5px;
+        }
+        /* Formulario principal da expressao regular */
+        .formulario {
+            border: 1px solid #000000;
+            text-align: center;
+            padding: 50px;
+        }
+
+            .formulario input {
+                border: 1px solid #000000;
+            }
+        /* Mensagem para verificar erro no jquery */
+        .jquery {
+            display: none;
+            color: #4cff00;
+            height: 100%;
+            text-align: center;
+        }
+    </style>
+    <!-- css -->
+    <!-- javascript -->
+    <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //Adicionando metodo para usar expressão regular no jquery validate
+            $.validator.addMethod(
+                "regex",
+                function (value, element, regexp) {
+                    var check = false;
+                    return this.optional(element) || regexp.test(value);
+                },
+                "Please check your input."
+            );
+            $("#formulario").validate({
+                rules: {
+                    teste: {
+                        regex: expressao
+                    }
+                },
+                messages: {
+                    teste: {
+                        regex: "Seu texto nao esta de acordo com a expressao regular"
+                    }
+                }
+            });
+
+            //Converte String para expressão regular
+            var expressao = new RegExp($(".expressao").val().toString());
+            $(".expressao").keyup(function () {
+                expressao = new RegExp($(".expressao").val().toString());
+                var valor = $(".expressao").val();
+                valor.match();
+            });
+
+
+
+
+
+            /*$("#Button1").css('border', '1px solid #f00');
+            $("#Button1").click(function () {
+                alert($("#expressao").val());
+            });*/
+            /*$("#teste").keyup(function () {
+                var valor = $(this).val().replace(expressao, '');
+                $(this).val(valor);
+            });*/
+            $(".jquery").css('display', 'block');
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $(".jquery").css('display', 'block');
+        });
+    </script>
+    <!-- javascript -->
+</head>
+<body>
+    <form class="formulario" id="formulario" method="post" action="">
+        <b>Verificar Expressão Regular</b><br /><br />
+        <input id="teste" class="teste" name="teste" type="text" />
+        <input id="btnVE" class="btnVE" type="button" value="Verificar Expressão" /><br />
+        <input id="expressao" class="expressao" name="expressao" type="text" value="a" /><br />
+    </form>
+    <div class="jquery">Jquery Ativo! E sem erros de sintaxe!</div><br />
+</body>
+</html>

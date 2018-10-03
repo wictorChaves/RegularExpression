@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ajuda - Verificador de Expressão Regular</title>
+    <!-- css -->
+    <link href="css/style.css" rel="Stylesheet" type="text/css" />
+    <!-- css -->
+    <!-- javascript -->
+    <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+    <!-- javascript -->
+</head>
+<body>
+    <div class="conteudo">
+        <b class="titulo">Expressão Regular</b>
+        <br />
+        <br />
+        <i class="titulo">- Operador ^</i>
+        <br />
+        ^ indica que a expressão deve iniciar com a string dada.
+        <br />
+        <br />
+        <i class="titulo">- Operador $</i>
+        <br />
+        $ nós definimos a string que deverá conincidir com o final.
+        <br />
+        <br />
+        <i class="titulo">- Caracteres em Branco e Caracteres de Escape</i>
+        <br />
+        \t – Caracter de tabulação<br />
+        \n – Nova linha<br />
+        \f – Avanço de página<br />
+        \r – Retorno de carro<br />
+        \. – Qualquer caractere<br />
+        \\ – Uma barra invertida literal<br />
+        \- – Um hífen literal<br />
+        <br />
+        <br />
+        <i class="titulo">- Intervalo de caracteres</i>
+        <br />
+        [a-z]     - Qualquer letra minúscula<br />
+        [A-Z]     - Qualquer letra maiúscula<br />
+        [a-zA-Z] - Qualquer letra maiúscula ou minúscula<br />
+        [0-9]      -  Qualquer número<br />
+        [0-9.-] - Qualquer número, ponto ou sinal de subtração<br />
+        <br />
+        <br />
+        <i class="titulo">- Operador ^ como negação</i>
+        <br />
+        Dentro de um intervalo o ^ nega o conjunto, ex:<br />
+        [^a-z] - Não é aceito letras minúscula de A a Z<br />
+        <br />
+        <br />
+        <i class="titulo">- Há outros modos de representar a repetição de caracteres</i>
+        <br />
+        ?     - Uma ocorrência ou nenhuma (Equivale a {0,1})<br />
+        *     - Nenhuma ocorrência, uma ocorrência, duas ocorrências e por aí vai (Equivale a {0,})<br />
+        +     - Uma ou mais ocorrências (Equivale a {1,})<br />
+        <br />
+        <br />
+        <i class="titulo">- “pipe”, o famoso |</i>
+        <br />
+        Ele é bem parecido com o operador lógico OR. <br />
+        Exemplo:<br />
+        <i>João|Maria|José</i><br />
+        Esta expressão só irá retornar verdadeiro se a string dada for “João” OU “Maria” OU “José”.<br />
+        <br />
+        <br />
+        <a class="link" href="http://www.phpit.com.br/artigos/entendendo-as-expressoes-regulares.phpit">Fonte</a>
+        <br />
+        <br />
+        <a class="link" href="index.htm"><< Voltar</a>
+
+    </div>
+</body>
+</html>
